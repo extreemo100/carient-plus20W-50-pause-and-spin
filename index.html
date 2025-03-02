@@ -113,6 +113,21 @@
             isDragging = false;
           });
 
+          // Add event listener to pause/resume animation on tap/click
+          document.addEventListener('click', (event) => {
+            // Prevent pausing if the user is dragging
+            if (!isDragging) {
+              action.paused = !action.paused; // Toggle paused state
+            }
+          });
+
+          document.addEventListener('touchstart', (event) => {
+            // Prevent pausing if the user is dragging
+            if (!isDragging) {
+              action.paused = !action.paused; // Toggle paused state
+            }
+          });
+
           await mindarThree.start();
           renderer.setAnimationLoop(() => {
             const delta = clock.getDelta();
