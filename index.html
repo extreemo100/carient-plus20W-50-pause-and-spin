@@ -95,12 +95,22 @@
             isDragging = false;
           });
 
-          // Add event listener to pause/resume animation on tap/click
-          document.addEventListener('click', () => {
-            action.paused = !action.paused; // Toggle paused state
+          // Add touch event listeners for mobile devices
+          document.addEventListener('touchstart', (event) => {
+            isDragging = true;
+            previousMouseX = event.touches[0].clientX;
           });
-          document.addEventListener('touchstart', () => {
-            action.paused = !action.paused; // Toggle paused state
+
+          document.addEventListener('touchmove', (event) => {
+            if (isDragging) {
+              const deltaX = event.touches[0].clientX - previousMouseX;
+              gltf.scene.rotation.y += deltaX * rotationSpeed; // Rotate along Y-axis
+              previousMouseX = event.touches[0].clientX;
+            }
+          });
+
+          document.addEventListener('touchend', () => {
+            isDragging = false;
           });
 
           await mindarThree.start();
