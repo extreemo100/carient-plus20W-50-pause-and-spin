@@ -10,14 +10,13 @@
         z-index: 9999;
       }
       button {
-        padding: 10px 0px;
+        padding: 0px 0px;
         font-size: 16px;
         color: #fff;
         background-color: #000;
         border: none;
         border-radius: 5px;
         bottom: 20px;
-        left: 50%;
         transform: translateX(-50%);
       }
       button:hover {
@@ -40,14 +39,14 @@
       /* Styles for the top-left images */
       .top-left {
         top: 20px;
-        left: 10px;
+        left: 0px;
         width: 250px; /* Adjust the width as needed */
         height: auto; /* Maintain aspect ratio */
       }
       /* Styles for the top-right images */
       .top-right {
         top: 20px;
-        right: 10px;
+        right: 0px;
         width: 250px; /* Adjust the width as needed */
         height: auto; /* Maintain aspect ratio */
       }
@@ -81,7 +80,7 @@
         const topLeftImage1 = document.createElement("img");
         topLeftImage1.src = "Button Design-01.png"; // Replace with the path to your PNG image
         topLeftImage1.classList.add("top-left");
-        topLeftImage1.style.top = "10px"; // First image position
+        topLeftImage1.style.top = "0px"; // First image position
         document.body.appendChild(topLeftImage1);
 
         const topLeftImage2 = document.createElement("img");
